@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloclass" class="com.example.vtd.HelloClazz">
+        <property name="msg" value="xin chao"/>
+    </bean>
+    <bean id="bean2" class="com.example.vtd.HelloClazz">
+        <property name="msg" value="xin chao"/>
+    </bean>
+    <bean id="bean3" class="com.example.vtd.HelloClazz" init-method="initMsg">
+        <!--<property name="msg" value="xin chao"/>-->
+    </bean>
+    <bean id="testscope" class="com.example.vtd.HelloClazz" scope="singleton" init-method="initMsg">
+        <property name="msg" value="xin chao singleton"/>
+    </bean>
+    <bean id="testprototype" class="com.example.vtd.HelloClazz" scope="prototype" init-method="initMsg">
+        <property name="msg" value="xin chao prototype"/>
+    </bean>
+</beans>
