@@ -9,7 +9,7 @@ public class AppConfig {
     @Bean(name = "bean2")
     @Scope("")
     public HelloClazz getHelloBean() {
-        HelloClazz bean =new HelloClazz();
+        HelloClazz bean = new HelloClazz();
         bean.setMsg("xin chao anh Dinh");
         return bean;
     }

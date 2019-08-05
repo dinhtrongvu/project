@@ -17,7 +17,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        Fragment frag=null;
+        Fragment frag = null;
         switch (position) {
             case 0:
                 frag = new Humans();
@@ -44,19 +44,19 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        String title="";
-        switch (position){
+        String title = "";
+        switch (position) {
             case 0:
-                title="HUMANS";
+                title = "HUMANS";
                 break;
             case 1:
-                title="ANIMALS";
+                title = "ANIMALS";
                 break;
             case 2:
-                title="CARTOON";
+                title = "CARTOON";
                 break;
             case 3:
-                title="RAGE";
+                title = "RAGE";
                 break;
         }
         return title;

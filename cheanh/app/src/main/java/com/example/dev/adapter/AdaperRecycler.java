@@ -28,16 +28,16 @@ public class AdaperRecycler extends RecyclerView.Adapter<AdaperRecycler.ItemHold
     @NonNull
     @Override
     public ItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(context).inflate(R.layout.custom_item_recyclerview,null);
-        ItemHolder itemHolder=new ItemHolder(v);
+        View v = LayoutInflater.from(context).inflate(R.layout.custom_item_recyclerview, null);
+        ItemHolder itemHolder = new ItemHolder(v);
         return itemHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemHolder holder, int position) {
-        ItemRecycler ir=arr.get(position);
+        ItemRecycler ir = arr.get(position);
         Glide.with(context).
-                load("file:///android_asset/"+"picture/" + "h"+ir.getId()+".jpeg")
+                load("file:///android_asset/" + "picture/" + "h" + ir.getId() + ".jpeg")
                 .into(holder.imgpickture);
     }
 
@@ -54,17 +54,18 @@ public class AdaperRecycler extends RecyclerView.Adapter<AdaperRecycler.ItemHold
     public class ItemHolder extends RecyclerView.ViewHolder {
         public ImageView imgpickture;
         public ImageView imglike;
+
         public ItemHolder(View itemView) {
             super(itemView);
-            imglike=itemView.findViewById(R.id.imglike);
-            imgpickture=itemView.findViewById(R.id.imgpickture);
+            imglike = itemView.findViewById(R.id.imglike);
+            imgpickture = itemView.findViewById(R.id.imgpickture);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i=new Intent(context, CreatePictureActivity.class);
-                   i.putExtra("picture",arr.get(getPosition()).getId());
-                   i.setFlags(i.FLAG_ACTIVITY_NEW_TASK);
-                   context.startActivity(i);
+                    Intent i = new Intent(context, CreatePictureActivity.class);
+                    i.putExtra("picture", arr.get(getPosition()).getId());
+                    i.setFlags(i.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(i);
                 }
             });
             imglike.setOnClickListener(new View.OnClickListener() {

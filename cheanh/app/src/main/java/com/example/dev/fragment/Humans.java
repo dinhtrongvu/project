@@ -19,20 +19,20 @@ import java.util.ArrayList;
 
 public class Humans extends Fragment {
     RecyclerView rvhumans;
-    ArrayList<ItemRecycler> arr=new ArrayList<>();
+    ArrayList<ItemRecycler> arr = new ArrayList<>();
     AdaperRecycler adaperRecycler;
     DBPicture dbPicture;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.layout_fragment,container,false);
-        dbPicture=new DBPicture(getContext());
-        rvhumans=v.findViewById(R.id.rvhumans);
-        arr= (ArrayList<ItemRecycler>) dbPicture.getPicture(1);
-        adaperRecycler=new AdaperRecycler(arr,getActivity());
+        View v = inflater.inflate(R.layout.layout_fragment, container, false);
+        dbPicture = new DBPicture(getContext());
+        rvhumans = v.findViewById(R.id.rvhumans);
+        arr = (ArrayList<ItemRecycler>) dbPicture.getPicture(1);
+        adaperRecycler = new AdaperRecycler(arr, getActivity());
         rvhumans.setHasFixedSize(true);
-        rvhumans.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        rvhumans.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         rvhumans.setAdapter(adaperRecycler);
         return v;
     }

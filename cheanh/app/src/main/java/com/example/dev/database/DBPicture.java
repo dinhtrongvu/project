@@ -13,43 +13,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBPicture extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="dbpicture";
-    public static final String TABLE_NAME="picture";
-    public static final String COLUMN_ID="id";
-    public static final String COLUMN_IMG="img";
-    public static final String COLUMN_FAVORITE="favorite";
-    public static final String COLUMN_SAVE="save";
+    public static final String DATABASE_NAME = "dbpicture";
+    public static final String TABLE_NAME = "picture";
+    public static final String COLUMN_ID = "id";
+    public static final String COLUMN_IMG = "img";
+    public static final String COLUMN_FAVORITE = "favorite";
+    public static final String COLUMN_SAVE = "save";
 
     public DBPicture(Context context) {
-        super(context, DATABASE_NAME, null,1);
+        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql="CREATE TABLE "+TABLE_NAME+" ( "+COLUMN_ID+" INTEGER PRIMARY KEY, "
-                +COLUMN_IMG+ " INTEGER, " +COLUMN_FAVORITE+ " INTEGER, "+COLUMN_SAVE+ " INTEGER )";
-        Log.d("dinhabc",sql);
+        String sql = "CREATE TABLE " + TABLE_NAME + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY, "
+                + COLUMN_IMG + " INTEGER, " + COLUMN_FAVORITE + " INTEGER, " + COLUMN_SAVE + " INTEGER )";
+        Log.d("dinhabc", sql);
         db.execSQL(sql);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
 
     }
-    public int getCount(){
-        String sql="SELECT * FROM "+TABLE_NAME;
-        SQLiteDatabase db=this.getReadableDatabase();
-        Cursor cursor=db.rawQuery(sql,null);
-        int count=cursor.getCount();
+
+    public int getCount() {
+        String sql = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        int count = cursor.getCount();
         cursor.close();
         return count;
     }
-    public void createData(){
-        int count=getCount();
-        if(count==0) {
+
+    public void createData() {
+        int count = getCount();
+        if (count == 0) {
             ItemRecycler h1 = new ItemRecycler(1, 0, 0);
             ItemRecycler h2 = new ItemRecycler(1, 0, 0);
             ItemRecycler h3 = new ItemRecycler(1, 0, 0);
@@ -86,8 +88,9 @@ public class DBPicture extends SQLiteOpenHelper {
             addData(h17);
         }
     }
-    public void addData(ItemRecycler ir){
-        SQLiteDatabase db=this.getWritableDatabase();
+
+    public void addData(ItemRecycler ir) {
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_IMG, ir.getImg());
         values.put(COLUMN_FAVORITE, ir.getFavorite());
@@ -97,15 +100,14 @@ public class DBPicture extends SQLiteOpenHelper {
         db.close();
     }
 
-    public List<ItemRecycler> getPicture(int img){
-        List<ItemRecycler> list=new ArrayList<>();
-        String sql="SELECT * FROM "+TABLE_NAME+" WHERE img= '"+img+"'" ;
-        SQLiteDatabase db=this.getReadableDatabase();
-        Cursor cursor=db.rawQuery(sql,null);
-        if(cursor.moveToFirst()){
-            do
-            {
-                ItemRecycler ir=new ItemRecycler();
+    public List<ItemRecycler> getPicture(int img) {
+        List<ItemRecycler> list = new ArrayList<>();
+        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE img= '" + img + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        if (cursor.moveToFirst()) {
+            do {
+                ItemRecycler ir = new ItemRecycler();
                 ir.setId(Integer.parseInt(cursor.getString(0)));
                 ir.setImg(Integer.parseInt(cursor.getString(1)));
                 ir.setFavorite(Integer.parseInt(cursor.getString(2)));

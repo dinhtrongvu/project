@@ -10,8 +10,9 @@ public class HelloClazz {
     public void setMsg(String msg) {
         this.msg = msg;
     }
-    public void printMsg () {
-        System.out.println("Your Msg: "+msg);
+
+    public void printMsg() {
+        System.out.println("Your Msg: " + msg);
     }
 
     private void initMsg() {

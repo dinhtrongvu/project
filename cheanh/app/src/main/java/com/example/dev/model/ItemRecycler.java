@@ -5,15 +5,17 @@ import android.graphics.drawable.Drawable;
 
 import java.io.Serializable;
 
-public class ItemRecycler  implements Serializable {
+public class ItemRecycler implements Serializable {
     int id;
     int img;
-    int favorite,save;
+    int favorite, save;
+
     public ItemRecycler(int img, int favorite, int save) {
         this.img = img;
         this.favorite = favorite;
         this.save = save;
     }
+
     public ItemRecycler() {
     }
 

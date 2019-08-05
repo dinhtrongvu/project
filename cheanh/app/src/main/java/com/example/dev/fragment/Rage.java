@@ -19,20 +19,20 @@ import java.util.ArrayList;
 
 public class Rage extends Fragment {
     RecyclerView rv;
-    ArrayList<ItemRecycler> arr=new ArrayList<>();
+    ArrayList<ItemRecycler> arr = new ArrayList<>();
     AdaperRecycler adaperRecycler;
     DBPicture dbPicture;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.layout_fragment,container,false);
-        dbPicture=new DBPicture(getContext());
-        rv=v.findViewById(R.id.rvhumans);
-        arr= (ArrayList<ItemRecycler>) dbPicture.getPicture(4);
-        adaperRecycler=new AdaperRecycler(arr,getActivity());
+        View v = inflater.inflate(R.layout.layout_fragment, container, false);
+        dbPicture = new DBPicture(getContext());
+        rv = v.findViewById(R.id.rvhumans);
+        arr = (ArrayList<ItemRecycler>) dbPicture.getPicture(4);
+        adaperRecycler = new AdaperRecycler(arr, getActivity());
         rv.setHasFixedSize(true);
-        rv.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        rv.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         rv.setAdapter(adaperRecycler);
         return v;
     }

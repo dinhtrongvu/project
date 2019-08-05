@@ -10,20 +10,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Thread thread=new Thread(new Runnable() {
+        final Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    finally {
-                        Intent i=new Intent(MainActivity.this,TrangChuActivity.class);
-                        startActivity(i);
-                    }
-
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    Intent i = new Intent(MainActivity.this, TrangChuActivity.class);
+                    startActivity(i);
                 }
+
+            }
         });
         thread.start();
     }

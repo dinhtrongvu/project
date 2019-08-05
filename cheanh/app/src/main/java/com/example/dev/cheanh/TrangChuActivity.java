@@ -25,13 +25,14 @@ public class TrangChuActivity extends AppCompatActivity
     ViewPager pager;
     TabLayout tabLayout;
     DBPicture dbPicture;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
         AddControll();
         CreateTrangChu();
-        dbPicture=new DBPicture(getApplicationContext());
+        dbPicture = new DBPicture(getApplicationContext());
         dbPicture.createData();
 
     }
@@ -50,11 +51,11 @@ public class TrangChuActivity extends AppCompatActivity
     private void AddControll() {
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.nav_view);
-        drawer =  findViewById(R.id.drawer_layout);
-        tabLayout=findViewById(R.id.tablayout);
-        pager=findViewById(R.id.viewpager);
-        FragmentManager manager=getSupportFragmentManager();
-        PagerAdapter pagerAdapter=new PagerAdapter(manager);
+        drawer = findViewById(R.id.drawer_layout);
+        tabLayout = findViewById(R.id.tablayout);
+        pager = findViewById(R.id.viewpager);
+        FragmentManager manager = getSupportFragmentManager();
+        PagerAdapter pagerAdapter = new PagerAdapter(manager);
         pager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

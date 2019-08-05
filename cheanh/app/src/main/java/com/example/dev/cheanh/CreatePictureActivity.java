@@ -11,20 +11,21 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.dev.model.ItemRecycler;
 
-public class CreatePictureActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener{
+public class CreatePictureActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
     ImageView imgviewpicture;
-    SeekBar sbred,sbgreen,sbblue;
-    TextView txttop,txtbottom;
-    EditText edttop,edtbottom;
+    SeekBar sbred, sbgreen, sbblue;
+    TextView txttop, txtbottom;
+    EditText edttop, edtbottom;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_picture);
         AddControls();
-        int id= (int) getIntent().getSerializableExtra("picture");
+        int id = (int) getIntent().getSerializableExtra("picture");
         Glide.with(getApplicationContext()).
-                load("file:///android_asset/"+"picture/" + "h"+id+".jpeg")
+                load("file:///android_asset/" + "picture/" + "h" + id + ".jpeg")
                 .into(imgviewpicture);
         AddEvents();
     }
@@ -36,14 +37,14 @@ public class CreatePictureActivity extends AppCompatActivity implements SeekBar.
     }
 
     private void AddControls() {
-        imgviewpicture=findViewById(R.id.imgViewpicture);
-        sbblue=findViewById(R.id.sbblue);
-        sbred=findViewById(R.id.sbred);
-        sbgreen=findViewById(R.id.sbgreen);
-        txttop=findViewById(R.id.txttop);
-        txtbottom=findViewById(R.id.txtbottom);
-        edttop=findViewById(R.id.edttexttop);
-        edtbottom=findViewById(R.id.edttextbottom);
+        imgviewpicture = findViewById(R.id.imgViewpicture);
+        sbblue = findViewById(R.id.sbblue);
+        sbred = findViewById(R.id.sbred);
+        sbgreen = findViewById(R.id.sbgreen);
+        txttop = findViewById(R.id.txttop);
+        txtbottom = findViewById(R.id.txtbottom);
+        edttop = findViewById(R.id.edttexttop);
+        edtbottom = findViewById(R.id.edttextbottom);
 
     }
 

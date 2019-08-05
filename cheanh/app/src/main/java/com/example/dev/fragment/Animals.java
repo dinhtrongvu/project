@@ -22,20 +22,20 @@ public class Animals extends Fragment {
 
     RecyclerView rv;
     AdaperRecycler adaperRecycler;
-    ArrayList<ItemRecycler> arr=new ArrayList<>();
+    ArrayList<ItemRecycler> arr = new ArrayList<>();
     DBPicture dbPicture;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.layout_fragment,container,false);
-        dbPicture=new DBPicture(getContext());
-        rv=v.findViewById(R.id.rvhumans);
-        List<ItemRecycler> list=dbPicture.getPicture(2);
+        View v = inflater.inflate(R.layout.layout_fragment, container, false);
+        dbPicture = new DBPicture(getContext());
+        rv = v.findViewById(R.id.rvhumans);
+        List<ItemRecycler> list = dbPicture.getPicture(2);
         arr.addAll(list);
-        adaperRecycler=new AdaperRecycler(arr,getActivity());
+        adaperRecycler = new AdaperRecycler(arr, getActivity());
         rv.setHasFixedSize(true);
-        rv.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        rv.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         rv.setAdapter(adaperRecycler);
 
         return v;
